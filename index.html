@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free AI Courses – Verified 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #faf9f7;
+    color: #2d2d2d;
+    padding: 0 0 40px;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #fde8ef 0%, #eef3e2 100%);
+    padding: 32px 20px 24px;
+    text-align: center;
+    border-bottom: 1px solid #f4c9d8;
+  }
+  .hero h1 { font-size: 1.6rem; font-weight: 800; color: #2d2d2d; margin-bottom: 6px; }
+  .hero p { font-size: 0.82rem; color: #7a7a7a; margin-bottom: 16px; }
+  .hero-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .hero-badge { font-size: 0.7rem; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+  .hb-pink { background: #fde8ef; color: #c2185b; border: 1px solid #f4aac5; }
+  .hb-olive { background: #eef3e2; color: #5a6e2e; border: 1px solid #c5d49a; }
+  .hb-blue { background: #e8f0fe; color: #1a56db; border: 1px solid #aac3f5; }
+
+  /* STATS */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 18px;
+    border: 1px solid #f4c9d8;
+    text-align: center;
+    min-width: 80px;
+  }
+  .stat-box .num { font-size: 1.4rem; font-weight: 800; color: #e8789a; line-height: 1; }
+  .stat-box.olive .num { color: #8aab4a; }
+  .stat-box .lbl { font-size: 0.65rem; color: #999; margin-top: 2px; }
+
+  /* SEARCH */
+  .search-wrap {
+    padding: 20px 16px 0;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #f4c9d8;
+    border-radius: 14px;
+    padding: 10px 16px;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .search-box input {
+    border: none;
+    outline: none;
+    font-size: 0.88rem;
+    width: 100%;
+    background: transparent;
+    color: #2d2d2d;
+  }
+  .search-box input::placeholder { color: #bbb; }
+  .search-icon { font-size: 1rem; color: #e8789a; }
+
+  /* FILTER TABS */
+  .filter-wrap {
+    padding: 14px 16px 0;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-wrap::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1.5px solid #f4c9d8;
+    background: #fff;
+    color: #888;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .filter-btn.active { background: #e8789a; color: #fff; border-color: #e8789a; }
+  .filter-btn:hover:not(.active) { background: #fde8ef; color: #c2185b; }
+
+  /* ROADMAP */
+  .roadmap-wrap { padding: 20px 16px 0; }
+  .roadmap-title {
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; color: #888; margin-bottom: 12px;
+    padding-left: 10px; border-left: 3px solid #e8789a;
+  }
+  .roadmap {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .roadmap::-webkit-scrollbar { display: none; }
+  .roadmap-step {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .roadmap-node {
+    background: #fff;
+    border: 1.5px solid #f4c9d8;
+    border-radius: 12px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 110px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .roadmap-node:hover { background: #fde8ef; transform: translateY(-2px); }
+  .roadmap-node.olive-node { border-color: #c5d49a; }
+  .roadmap-node.olive-node:hover { background: #eef3e2; }
+  .roadmap-node .rn-emoji { font-size: 1.2rem; margin-bottom: 4px; }
+  .roadmap-node .rn-title { font-size: 0.68rem; font-weight: 700; color: #333; line-height: 1.2; }
+  .roadmap-node .rn-time { font-size: 0.6rem; color: #aaa; margin-top: 3px; }
+  .roadmap-arrow {
+    font-size: 0.8rem;
+    color: #f4aac5;
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.2px; color: #888; margin: 24px 16px 12px;
+    padding-left: 10px; border-left: 3px solid #f4aac5;
+  }
+  .section-label.olive-border { border-left-color: #c5d49a; }
+
+  /* CARDS */
+  .cards-wrap { padding: 0 16px; }
+  .card {
+    background: #ffffff; border-radius: 16px; padding: 18px 18px 16px;
+    margin-bottom: 14px; border: 1.5px solid var(--border);
+    position: relative; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .card.hidden { display: none; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px; background: var(--accent);
+    border-radius: 16px 16px 0 0;
+  }
+  .card-bg-stripe {
+    position: absolute; top: 0; right: 0;
+    width: 80px; height: 80px;
+    border-radius: 0 16px 0 80px;
+    background: var(--soft); opacity: 0.5;
+  }
+  .verified-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 0.62rem; font-weight: 700; color: #3a7c3a;
+    background: #edf7ed; border: 1px solid #b8ddb8;
+    border-radius: 999px; padding: 2px 9px; margin-bottom: 10px;
+  }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .logo {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+    background: var(--soft); border: 1px solid var(--border);
+  }
+  .card-title { font-size: 0.92rem; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+  .card-by { font-size: 0.71rem; color: #999; margin-top: 2px; }
+  .cert-pill {
+    display: inline-flex; align-items: center;
+    font-size: 0.62rem; font-weight: 700;
+    color: #c2185b; background: #fde8ef; border: 1px solid #f4aac5;
+    border-radius: 999px; padding: 2px 8px; margin-left: 6px;
+  }
+  .cert-pill.olive { color: #5a6e2e; background: #eef3e2; border-color: #c5d49a; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tag {
+    font-size: 0.62rem; font-weight: 600; padding: 3px 9px;
+    border-radius: 999px; background: var(--soft); color: var(--tag-color);
+    border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .info-row { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+  .info-item { display: flex; align-items: center; gap: 5px; font-size: 0.74rem; color: #888; }
+  .info-item strong { color: #333; }
+  .time-bar-bg { background: #f0f0f0; border-radius: 999px; height: 5px; margin-bottom: 14px; overflow: hidden; }
+  .time-bar-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+  .link-btn {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    padding: 8px 16px; border-radius: 10px; background: var(--accent);
+    color: #fff; text-decoration: none; transition: opacity 0.15s, transform 0.1s;
+  }
+  .link-btn:hover { opacity: 0.88; transform: scale(1.02); }
+
+  .pink { --accent: #e8789a; --soft: #fde8ef; --border: #f4c9d8; --tag-color: #c2185b; }
+  .olive { --accent: #8aab4a; --soft: #eef3e2; --border: #c5d49a; --tag-color: #5a6e2e; }
+
+  /* NO RESULTS */
+  .no-results {
+    text-align: center; padding: 40px 20px; display: none;
+    color: #aaa; font-size: 0.85rem;
+  }
+  .no-results .emoji { font-size: 2rem; margin-bottom: 8px; }
+
+  /* FOOTER */
+  .footer-box {
+    margin: 24px 16px 0;
+    background: linear-gradient(135deg, #fde8ef, #eef3e2);
+    border: 1.5px solid #f4c9d8; border-radius: 18px;
+    padding: 20px; text-align: center;
+  }
+  .footer-box p { font-size: 0.74rem; color: #888; line-height: 1.7; }
+  .footer-links {
+    text-align: center; font-size: 0.67rem; color: #bbb;
+    margin-top: 16px; line-height: 1.9; padding: 0 16px;
+  }
+  .footer-links a { color: #e8789a; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🎓 Free AI Courses 2026</h1>
+  <p>100% Verified · Free Certificate · No Hidden Fees</p>
+  <div class="hero-badges">
+    <span class="hero-badge hb-pink">✓ All Certificates Free</span>
+    <span class="hero-badge hb-olive">✓ Verified May 2026</span>
+    <span class="hero-badge hb-blue">✓ LinkedIn Ready</span>
+  </div>
+  <div class="stats">
+    <div class="stat-box"><div class="num">9</div><div class="lbl">Free Certs</div></div>
+    <div class="stat-box olive"><div class="num">~58</div><div class="lbl">Hours</div></div>
+    <div class="stat-box"><div class="num">20</div><div class="lbl">Day Plan</div></div>
+    <div class="stat-box olive"><div class="num">4</div><div class="lbl">Providers</div></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search courses e.g. Python, MCP, API..." oninput="filterCourses()"/>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-wrap">
+  <button class="filter-btn active" onclick="setFilter('all', this)">🌐 All</button>
+  <button class="filter-btn" onclick="setFilter('beginner', this)">🟢 Beginner</button>
+  <button class="filter-btn" onclick="setFilter('developer', this)">💻 Developer</button>
+  <button class="filter-btn" onclick="setFilter('advanced', this)">🔴 Advanced</button>
+  <button class="filter-btn" onclick="setFilter('nocode', this)">🎯 No Code</button>
+  <button class="filter-btn" onclick="setFilter('video', this)">🎬 Video Based</button>
+</div>
+
+<!-- ROADMAP -->
+<div class="roadmap-wrap">
+  <div class="roadmap-title">🗺️ Recommended Learning Roadmap</div>
+  <div class="roadmap">
+    <div class="roadmap-step">
+      <div class="roadmap-node" onclick="scrollToCard('claude101')">
+        <div class="rn-emoji">🧠</div>
+        <div class="rn-title">Claude 101</div>
+        <div class="rn-time">~2 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node" onclick="scrollToCard('aifluency')">
+        <div class="rn-emoji">💡</div>
+        <div class="rn-title">AI Fluency</div>
+        <div class="rn-time">~4 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node olive-node" onclick="scrollToCard('ibm')">
+        <div class="rn-emoji">🏢</div>
+        <div class="rn-title">IBM AI Fund.</div>
+        <div class="rn-time">~10 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node olive-node" onclick="scrollToCard('google')">
+        <div class="rn-emoji">🔴</div>
+        <div class="rn-title">Google GenAI</div>
+        <div class="rn-time">~2 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node" onclick="scrollToCard('api')">
+        <div class="rn-emoji">⚙️</div>
+        <div class="rn-title">Claude API</div>
+        <div class="rn-time">~8 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node olive-node" onclick="scrollToCard('mcp')">
+        <div class="rn-emoji">🔌</div>
+        <div class="rn-title">MCP Intro</div>
+        <div class="rn-time">~6 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node" onclick="scrollToCard('mcpadv')">
+        <div class="rn-emoji">🚀</div>
+        <div class="rn-title">MCP Advanced</div>
+        <div class="rn-time">~5 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node olive-node" onclick="scrollToCard('claudecode')">
+        <div class="rn-emoji">💻</div>
+        <div class="rn-title">Claude Code</div>
+        <div class="rn-time">~4 hrs</div>
+      </div>
+      <div class="roadmap-arrow">→</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-node" onclick="scrollToCard('umd')">
+        <div class="rn-emoji">🎓</div>
+        <div class="rn-title">UMD AI Career</div>
+        <div class="rn-time">~25 hrs</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANTHROPIC SECTION -->
+<div class="section-label">🤖 Anthropic Academy — 6 Free Certificates</div>
+<div class="cards-wrap">
+
+<div class="card pink" id="claude101" data-tags="beginner nocode anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🧠</div>
+    <div>
+      <div class="card-title">Claude 101 <span class="cert-pill">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Beginner</span><span class="tag">No Code</span><span class="tag">AI Basics</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~2 hours</strong></div>
+    <div class="info-item">📅 Day 1–2</div>
+    <div class="info-item">📶 Beginner</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:10%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+<div class="card olive" id="aifluency" data-tags="beginner nocode anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">💡</div>
+    <div>
+      <div class="card-title">AI Fluency: Framework & Foundations <span class="cert-pill olive">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Beginner</span><span class="tag">AI Mindset</span><span class="tag">No Code</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~3–4 hours</strong></div>
+    <div class="info-item">📅 Day 3–4</div>
+    <div class="info-item">📶 Beginner</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:20%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+<div class="card pink" id="api" data-tags="developer python api anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">⚙️</div>
+    <div>
+      <div class="card-title">Building with the Claude API <span class="cert-pill">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Developer</span><span class="tag">Python</span><span class="tag">API</span><span class="tag">🔥 High Demand</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~8+ hours</strong></div>
+    <div class="info-item">📅 Day 5–9</div>
+    <div class="info-item">📶 Intermediate</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:40%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+<div class="card olive" id="mcp" data-tags="developer python mcp anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🔌</div>
+    <div>
+      <div class="card-title">Intro to Model Context Protocol (MCP) <span class="cert-pill olive">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Developer</span><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">🚀 Future Skill</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~6 hours</strong></div>
+    <div class="info-item">📅 Day 10–13</div>
+    <div class="info-item">📶 Intermediate</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:30%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+<div class="card pink" id="mcpadv" data-tags="advanced developer mcp anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🚀</div>
+    <div>
+      <div class="card-title">MCP: Advanced Topics <span class="cert-pill">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Advanced</span><span class="tag">Production AI</span><span class="tag">MCP</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~5 hours</strong></div>
+    <div class="info-item">📅 Day 14–16</div>
+    <div class="info-item">📶 Advanced</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:25%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+<div class="card olive" id="claudecode" data-tags="developer coding anthropic">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">💻</div>
+    <div>
+      <div class="card-title">Claude Code in Action <span class="cert-pill olive">🎓 Free Cert</span></div>
+      <div class="card-by">Anthropic Academy · anthropic.skilljar.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Developer</span><span class="tag">Agentic AI</span><span class="tag">Coding</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~4 hours</strong></div>
+    <div class="info-item">📅 Day 17–18</div>
+    <div class="info-item">📶 Intermediate</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:20%"></div></div>
+  <a class="link-btn" href="https://anthropic.skilljar.com" target="_blank">Start Course →</a>
+</div>
+
+</div>
+
+<!-- OTHER COURSES -->
+<div class="section-label olive-border">🌐 Other Verified Free Courses — 3 More Certificates</div>
+<div class="cards-wrap">
+
+<div class="card olive" id="ibm" data-tags="beginner nocode ibm">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🏢</div>
+    <div>
+      <div class="card-title">AI Fundamentals <span class="cert-pill olive">🎓 Free Badge via Credly</span></div>
+      <div class="card-by">IBM SkillsBuild · skillsbuild.org</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Beginner</span><span class="tag">No Code</span><span class="tag">IBM Badge</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~10 hours</strong></div>
+    <div class="info-item">📅 Day 18–20</div>
+    <div class="info-item">📶 Beginner</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:50%"></div></div>
+  <a class="link-btn" href="https://skillsbuild.org/college-students/course-catalog/artificial-intelligence-fundamentals" target="_blank">Start Course →</a>
+</div>
+
+<div class="card pink" id="umd" data-tags="beginner video university">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🎓</div>
+    <div>
+      <div class="card-title">AI & Career Empowerment <span class="cert-pill">🎓 Free Cert</span></div>
+      <div class="card-by">University of Maryland · Smith School of Business</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Video Based</span><span class="tag">University</span><span class="tag">Business AI</span><span class="tag">🔥 37K+ Enrolled</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~25 hours</strong></div>
+    <div class="info-item">📅 Anytime</div>
+    <div class="info-item">📶 Beginner</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:60%"></div></div>
+  <a class="link-btn" href="https://umd-smithlearn.catalog.instructure.com/courses/artificial-intelligence-and-career-transformation" target="_blank">Start Course →</a>
+</div>
+
+<div class="card olive" id="google" data-tags="beginner genai google video">
+  <div class="card-bg-stripe"></div>
+  <div class="verified-pill">✓ Verified Free</div>
+  <div class="card-header">
+    <div class="logo">🔴</div>
+    <div>
+      <div class="card-title">Generative AI Fundamentals <span class="cert-pill olive">🎓 Free Skill Badge</span></div>
+      <div class="card-by">Google Cloud Skills Boost · cloudskillsboost.google.com</div>
+    </div>
+  </div>
+  <div class="tags"><span class="tag">Beginner</span><span class="tag">GenAI</span><span class="tag">Google Badge</span><span class="tag">🎬 Video Based</span></div>
+  <div class="info-row">
+    <div class="info-item">⏱ <strong>~2 hours</strong></div>
+    <div class="info-item">📅 Any free day</div>
+    <div class="info-item">📶 Beginner</div>
+  </div>
+  <div class="time-bar-bg"><div class="time-bar-fill" style="width:10%"></div></div>
+  <a class="link-btn" href="https://www.cloudskillsboost.google/course_templates/536" target="_blank">Start Course →</a>
+</div>
+
+</div>
+
+<!-- NO RESULTS -->
+<div class="no-results" id="noResults">
+  <div class="emoji">🔍</div>
+  No courses found. Try a different search!
+</div>
+
+<!-- FOOTER -->
+<div class="footer-box">
+  <p>All courses verified May 2026 · No credit card · No hidden fees<br/>Built with ❤️ using Claude AI by Anthropic</p>
+</div>
+<div class="footer-links">
+  Anthropic → <a href="https://anthropic.skilljar.com">anthropic.skilljar.com</a> &nbsp;·&nbsp;
+  IBM → <a href="https://skillsbuild.org">skillsbuild.org</a><br/>
+  UMD → <a href="https://umd-smithlearn.catalog.instructure.com">umd-smithlearn.catalog.instructure.com</a> &nbsp;·&nbsp;
+  Google → <a href="https://www.cloudskillsboost.google/course_templates/536">cloudskillsboost.google.com</a>
+</div>
+
+<script>
+  let currentFilter = 'all';
+
+  function filterCourses() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    let visible = 0;
+    cards.forEach(card => {
+      const title = card.querySelector('.card-title').textContent.toLowerCase();
+      const by = card.querySelector('.card-by').textContent.toLowerCase();
+      const tags = card.dataset.tags || '';
+      const matchesSearch = title.includes(query) || by.includes(query) || tags.includes(query);
+      const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter);
+      if (matchesSearch && matchesFilter) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function setFilter(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCourses();
+  }
+
+  function scrollToCard(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.boxShadow = '0 0 0 3px #e8789a';
+      setTimeout(() => el.style.boxShadow = '', 1500);
+    }
+  }
+</script>
+</body>
+</html>
